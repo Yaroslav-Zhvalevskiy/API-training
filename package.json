@@ -1,0 +1,17 @@
+{
+  "name": "api-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --config ./src/config/.mocharc.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "chai": "^4.3.4",
+    "chai-json-schema": "^1.5.1",
+    "mocha": "^9.1.3"
+  }
+}
