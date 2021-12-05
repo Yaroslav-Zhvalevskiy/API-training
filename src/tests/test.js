@@ -8,10 +8,10 @@ describe('API. Widgets', function () {
         api.expect(resp.data).to.be.jsonSchema(api.schema.summary);
     });
 
-    xit('Summary 2', async function () {
+    it('Summary 2', async function () {
         const resp = await api.widgets.getSummary();
-        console.log(resp);
         api.expect(resp.status).to.equal(200);
         api.expect(resp.data.reportName).to.equal('Allure Report');
+        api.expect(resp.data).to.be.jsonSchema(api.schema.summary);
     });
 });

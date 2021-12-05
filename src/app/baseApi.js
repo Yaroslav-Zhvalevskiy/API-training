@@ -3,7 +3,7 @@ const axios = require('axios');
 class BaseApi {
     constructor() {
         this.axios = axios;
-        this.axios.defaults.baseURL = 'http://localhost:1234';
+        this.axios.defaults.baseURL = 'http://localhost:12341';
     }
 
     async get(url) {
@@ -12,8 +12,15 @@ class BaseApi {
             url
         }
         try {
-            return this.axios(data);
+            const resp = await this.axios(data);
+            console.log(`GET ${this.axios.defaults.baseURL}${url} request is completed with status code ${resp.status}`);
+            return resp;
         } catch (err) {
+            if (err.response) {
+                console.log(`GET ${this.axios.defaults.baseURL}${url} request is completed with status code ${err.response.status}`);
+                return err.response;
+            }
+            console.log(`GET ${this.axios.defaults.baseURL}${url} request is completed with error ${err.message}`);
             throw err;
         }
     }
